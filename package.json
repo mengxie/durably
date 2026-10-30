@@ -1,0 +1,62 @@
+{
+  "name": "@mengxie/durably",
+  "version": "0.1.0",
+  "description": "Durable, event-sourced workflows for TypeScript: deterministic replay, durable timers and retries, signals and saga compensation.",
+  "keywords": [
+    "workflow",
+    "durable-execution",
+    "event-sourcing",
+    "saga",
+    "orchestration",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "Meng Xie",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengxie/durably.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./sqlite": {
+      "types": "./dist/storage/sqlite-store.d.ts",
+      "import": "./dist/storage/sqlite-store.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "example:order": "tsx examples/order-fulfilment.ts",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "@vitest/coverage-v8": "^5.0.5",
+    "eslint": "^10.13.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}
